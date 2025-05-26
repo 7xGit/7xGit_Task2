@@ -61,9 +61,9 @@ int main() {
 
             attempts++;
 
-            if ( ___ ) {  // Hint: Fill in the condition for "Too low"
+            if ( guess < secretNumber) {  // Hint: Fill in the condition for "Too low"
                 cout << "Too low! Try again." << endl;
-            } else if ( ___ ) { // Hint: Fill in the condition for "Too high"
+            } else if ( guess > secretNumber ) { // Hint: Fill in the condition for "Too high"
                 cout << "Too high! Try again." << endl;
             } else {
                 cout << "Congratulations! You guessed the number " << secretNumber << " in " << attempts << " attempts!" << endl;
