@@ -18,19 +18,19 @@ int main() {
         // Set bounds and max attempts based on difficulty
         switch (difficulty) {
             case 1:
-                lowerBound  = ; // Hint: Low range
-                upperBound  = ; // Hint: High range
-                maxAttempts = ; // Hint: Fewer attempts
+                lowerBound  = 1; // Hint: Low range
+                upperBound  = 10; // Hint: High range
+                maxAttempts = 5; // Hint: Fewer attempts
                 break;
             case 2:
-                lowerBound =  ; // Hint: Medium low
-                upperBound =  ; // Hint: Medium high
-                maxAttempts = ; // Hint: More attempts than Easy
+                lowerBound =  1; // Hint: Medium low
+                upperBound =  50; // Hint: Medium high
+                maxAttempts = 7; // Hint: More attempts than Easy
                 break;
             case 3:
-                lowerBound = ; // Hint: Lowest value
-                upperBound = ; // Hint: Highest value
-                maxAttempts = ; // Hint: Maximum attempts
+                lowerBound = 1; // Hint: Lowest value
+                upperBound = 100; // Hint: Highest value
+                maxAttempts = 10; // Hint: Maximum attempts
                 break;
             default:
                 cout << "Invalid difficulty level! Setting to Easy." << endl;
