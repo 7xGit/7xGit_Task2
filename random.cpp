@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
 using namespace std;
 
 int main() {
@@ -47,7 +48,7 @@ int main() {
 
         cout << "I have selected a number between " << lowerBound << " and " << upperBound << ". You have " << maxAttempts << " attempts to guess it!" << endl;
 
-        while ( attempts<=maxAttempts && !hasGuessedCorrectly) { // Hint: Fill in the condition for the loop
+        while ( attempts< maxAttempts && !hasGuessedCorrectly) { // Hint: Fill in the condition for the loop
             cout << "Enter your guess: ";
             cin >> guess;
 
@@ -61,9 +62,9 @@ int main() {
 
             attempts++;
 
-            if ( ___ ) {  // Hint: Fill in the condition for "Too low"
+            if ( guess<secretNumber ) {  // Hint: Fill in the condition for "Too low"
                 cout << "Too low! Try again." << endl;
-            } else if ( ___ ) { // Hint: Fill in the condition for "Too high"
+            } else if ( guess>secretNumber ) { // Hint: Fill in the condition for "Too high"
                 cout << "Too high! Try again." << endl;
             } else {
                 cout << "Congratulations! You guessed the number " << secretNumber << " in " << attempts << " attempts!" << endl;
