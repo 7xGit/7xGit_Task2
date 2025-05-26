@@ -47,7 +47,7 @@ int main() {
 
         cout << "I have selected a number between " << lowerBound << " and " << upperBound << ". You have " << maxAttempts << " attempts to guess it!" << endl;
 
-        while ( ____ && !hasGuessedCorrectly) { // Hint: Fill in the condition for the loop
+        while ( attempts < maxAttempts && !hasGuessedCorrectly) { // Hint: Fill in the condition for the loop
             cout << "Enter your guess: ";
             cin >> guess;
 
