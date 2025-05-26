@@ -40,7 +40,7 @@ int main() {
         }
 
         // Generate secret number between lowerBound and upperBound
-        secretNumber = ____;  // Hint: Use rand() with correct formula
+        secretNumber = rand() % ( upperBound-lowerBound+1 ) + lowerBound;  // Hint: Use rand() with correct formula
 
         attempts = 0;
         bool hasGuessedCorrectly = false;
