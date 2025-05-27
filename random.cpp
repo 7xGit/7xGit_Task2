@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
 using namespace std;
 
 int main() {
@@ -9,6 +10,7 @@ int main() {
     int lowerBound, upperBound, secretNumber, guess;
     int maxAttempts, attempts;
     char playAgain;
+    int highScore = 0; // 0 means no high score yet
 
     do {
         int difficulty;
@@ -18,19 +20,19 @@ int main() {
         // Set bounds and max attempts based on difficulty
         switch (difficulty) {
             case 1:
-                lowerBound  = ; // Hint: Low range
-                upperBound  = ; // Hint: High range
-                maxAttempts = ; // Hint: Fewer attempts
+                lowerBound  = 1;   // Easy: Low range
+                upperBound  = 10;  // Easy: High range
+                maxAttempts = 5;   // Easy: Fewer attempts
                 break;
             case 2:
-                lowerBound =  ; // Hint: Medium low
-                upperBound =  ; // Hint: Medium high
-                maxAttempts = ; // Hint: More attempts than Easy
+                lowerBound = 1;    // Medium: Medium low
+                upperBound = 50;   // Medium: Medium high
+                maxAttempts = 7;   // Medium: More attempts than Easy
                 break;
             case 3:
-                lowerBound = ; // Hint: Lowest value
-                upperBound = ; // Hint: Highest value
-                maxAttempts = ; // Hint: Maximum attempts
+                lowerBound = 1;    // Hard: Lowest value
+                upperBound = 100;  // Hard: Highest value
+                maxAttempts = 10;  // Hard: Maximum attempts
                 break;
             default:
                 cout << "Invalid difficulty level! Setting to Easy." << endl;
@@ -40,14 +42,14 @@ int main() {
         }
 
         // Generate secret number between lowerBound and upperBound
-        secretNumber = ____;  // Hint: Use rand() with correct formula
+        secretNumber = rand() % (upperBound - lowerBound + 1) + lowerBound;
 
         attempts = 0;
         bool hasGuessedCorrectly = false;
 
         cout << "I have selected a number between " << lowerBound << " and " << upperBound << ". You have " << maxAttempts << " attempts to guess it!" << endl;
 
-        while ( ____ && !hasGuessedCorrectly) { // Hint: Fill in the condition for the loop
+        while (attempts < maxAttempts && !hasGuessedCorrectly) { // Loop condition
             cout << "Enter your guess: ";
             cin >> guess;
 
@@ -61,13 +63,20 @@ int main() {
 
             attempts++;
 
-            if ( ___ ) {  // Hint: Fill in the condition for "Too low"
+            if (guess < secretNumber) {  // Too low
                 cout << "Too low! Try again." << endl;
-            } else if ( ___ ) { // Hint: Fill in the condition for "Too high"
+            } else if (guess > secretNumber) { // Too high
                 cout << "Too high! Try again." << endl;
             } else {
                 cout << "Congratulations! You guessed the number " << secretNumber << " in " << attempts << " attempts!" << endl;
                 hasGuessedCorrectly = true;
+                // Update high score 
+                if (highScore == 0 || attempts < highScore) { //
+                    highScore = attempts;
+                    cout << "New high score! Least attempts so far: " << highScore << endl;
+                } else {
+                    cout << "Current high score (least attempts): " << highScore << endl;
+                }
             }
 
             // Provide hints based on proximity
@@ -82,6 +91,8 @@ int main() {
 
         if (!hasGuessedCorrectly) {
             cout << "Sorry! You've used all your attempts. The correct number was " << secretNumber << "." << endl;
+            if (highScore > 0)
+                cout << "Current high score (least attempts): " << highScore << endl;
         }
 
         cout << "Do you want to play again? (y/n): ";
