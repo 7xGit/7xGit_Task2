@@ -10,6 +10,7 @@ int main() {
     int lowerBound, upperBound, secretNumber, guess;
     int maxAttempts, attempts;
     char playAgain;
+    int highScore = 0; // 0 means no high score yet
 
     do {
         int difficulty;
@@ -69,6 +70,13 @@ int main() {
             } else {
                 cout << "Congratulations! You guessed the number " << secretNumber << " in " << attempts << " attempts!" << endl;
                 hasGuessedCorrectly = true;
+                // Update high score 
+                if (highScore == 0 || attempts < highScore) { //
+                    highScore = attempts;
+                    cout << "New high score! Least attempts so far: " << highScore << endl;
+                } else {
+                    cout << "Current high score (least attempts): " << highScore << endl;
+                }
             }
 
             // Provide hints based on proximity
@@ -83,6 +91,8 @@ int main() {
 
         if (!hasGuessedCorrectly) {
             cout << "Sorry! You've used all your attempts. The correct number was " << secretNumber << "." << endl;
+            if (highScore > 0)
+                cout << "Current high score (least attempts): " << highScore << endl;
         }
 
         cout << "Do you want to play again? (y/n): ";
